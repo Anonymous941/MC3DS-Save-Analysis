@@ -42,11 +42,10 @@ Each world has these files:
     * `index.vdb`: maps VDB files to the CDB files, acts as a backup for newindex.vdb
     * `newindex.vdb`: The main index, has backup (index.cdb), if becomes corrupted, reverts to previous SaveGame then.
     * `slt0.vdb`, `slt1.vdb`, ...: data
+# CDB and VDB
+**Most of the information on the CDB and VDB files here is currently outdated.**  See [minecraft3ds.h](https://github.com/MC3DS-Save-Research/3DS-Chunker/blob/main/mc3ds/minecraft3ds.h) for the latest information.  A better explaination will be written once the files are fully understood.
 
-# Warning
-Most information on the CDB and VDB files here is currently outdated.  See [minecraft3ds.h](https://github.com/MC3DS-Save-Research/3DS-Chunker/blob/main/mc3ds/minecraft3ds.h) for the latest information.  A better explaination will be written once the files are fully understood.
-
-Both the CDB and VDB files are made of of several "subfiles", which each have their own header and are effectively seperate files.  
+Both the CDB and VDB files are made of of several "subfiles", which each have their own header and are effectively seperate files.  CDB and VDB share the index format and subfile structure, similar to how NBT is used for many different formats. 
 
 ### Indexes
 
@@ -108,7 +107,7 @@ NBT is saved in uncompressed little-endian, and (as of yet) it doesn't seem to b
 The `level.dat` file has different formats depending on the version.
 We have only looked at 0.1.0 and 1.9.19 formats.
 
- 0.1.0 vs. 1.9.19 format:
+0.1.0 vs. 1.9.19 format:
 ```ts
 // The types here are represented with NBTify's TypeScript typings for NBT tags.
 // `BooleanTag` is just an alias to a `ByteTag<0 | 1>` value.
